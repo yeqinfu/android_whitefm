@@ -1,19 +1,17 @@
 // (c)2016 Flipboard Inc, All Rights Reserved.
 
-package com.rengwuxian.rxjavasamples;
+package com.whitefm.base;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
 
-import com.whitefm.R;
-
 import butterknife.OnClick;
 import rx.Subscription;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class FG_Base extends Fragment {
     protected Subscription subscription;
 
-    @OnClick(R.id.tipBt)
+    @OnClick(com.whitefm.R.id.tipBt)
     void tip() {
         new AlertDialog.Builder(getActivity())
                 .setTitle(getTitleRes())

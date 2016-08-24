@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.rengwuxian.rxjavasamples.R;
 import com.rengwuxian.rxjavasamples.model.ZhuangbiImage;
+import com.whitefm.R;
 
 import java.util.List;
 

@@ -1,6 +1,14 @@
 // (c)2016 Flipboard Inc, All Rights Reserved.
 
-package com.rengwuxian.rxjavasamples.module.elementary_1;
+package com.whitefm.main.home;
+
+import java.util.List;
+
+import com.whitefm.R;
+import com.rengwuxian.rxjavasamples.model.ZhuangbiImage;
+import com.rengwuxian.rxjavasamples.network.Network;
+import com.whitefm.base.FG_Base;
+import com.whitefm.main.adapter.AD_HomePage;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,14 +22,6 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.rengwuxian.rxjavasamples.BaseFragment;
-import com.rengwuxian.rxjavasamples.network.Network;
-import com.whitefm.R;
-import com.rengwuxian.rxjavasamples.adapter.ZhuangbiListAdapter;
-import com.rengwuxian.rxjavasamples.model.ZhuangbiImage;
-
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
@@ -29,11 +29,11 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class ElementaryFragment extends BaseFragment {
+public class FG_HomePage extends FG_Base {
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.gridRv) RecyclerView gridRv;
 
-    ZhuangbiListAdapter adapter = new ZhuangbiListAdapter();
+    AD_HomePage adapter = new AD_HomePage();
     Observer<List<ZhuangbiImage>> observer = new Observer<List<ZhuangbiImage>>() {
         @Override
         public void onCompleted() {

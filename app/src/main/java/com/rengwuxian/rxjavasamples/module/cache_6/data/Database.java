@@ -4,7 +4,7 @@ package com.rengwuxian.rxjavasamples.module.cache_6.data;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.rengwuxian.rxjavasamples.App;
+import com.whitefm.App;
 import com.rengwuxian.rxjavasamples.model.Item;
 
 import java.io.File;

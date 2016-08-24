@@ -1,25 +1,25 @@
-package com.rengwuxian.rxjavasamples;
+package com.whitefm;
 
+import com.rengwuxian.rxjavasamples.module.cache_6.CacheFragment;
+import com.rengwuxian.rxjavasamples.module.elementary_1.ElementaryFragment;
+import com.rengwuxian.rxjavasamples.module.map_2.MapFragment;
+import com.rengwuxian.rxjavasamples.module.token_4.TokenFragment;
+import com.rengwuxian.rxjavasamples.module.token_advanced_5.TokenAdvancedFragment;
+import com.rengwuxian.rxjavasamples.module.zip_3.ZipFragment;
+import com.whitefm.main.home.FG_HomePage;
+
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.app.Fragment;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.rengwuxian.rxjavasamples.module.token_advanced_5.TokenAdvancedFragment;
-import com.rengwuxian.rxjavasamples.module.token_4.TokenFragment;
-import com.rengwuxian.rxjavasamples.module.cache_6.CacheFragment;
-import com.rengwuxian.rxjavasamples.module.zip_3.ZipFragment;
-import com.rengwuxian.rxjavasamples.module.elementary_1.ElementaryFragment;
-import com.rengwuxian.rxjavasamples.module.map_2.MapFragment;
-import com.whitefm.R;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class AC_Main extends AppCompatActivity {
     @Bind(android.R.id.tabs) TabLayout tabLayout;
     @Bind(R.id.viewPager) ViewPager viewPager;
     @Bind(R.id.toolBar) Toolbar toolBar;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public Fragment getItem(int position) {
                 switch (position) {
                     case 0:
-                        return new ElementaryFragment();
+                        return new FG_HomePage();
                     case 1:
                         return new MapFragment();
                     case 2:
@@ -62,19 +62,19 @@ public class MainActivity extends AppCompatActivity {
             public CharSequence getPageTitle(int position) {
                 switch (position) {
                     case 0:
-                        return getString(R.string.title_elementary);
+                        return getString(com.whitefm.R.string.title_elementary);
                     case 1:
-                        return getString(R.string.title_map);
+                        return getString(com.whitefm.R.string.title_map);
                     case 2:
-                        return getString(R.string.title_zip);
+                        return getString(com.whitefm.R.string.title_zip);
                     case 3:
-                        return getString(R.string.title_token);
+                        return getString(com.whitefm.R.string.title_token);
                     case 4:
-                        return getString(R.string.title_token_advanced);
+                        return getString(com.whitefm.R.string.title_token_advanced);
                     case 5:
-                        return getString(R.string.title_cache);
+                        return getString(com.whitefm.R.string.title_cache);
                     default:
-                        return getString(R.string.title_elementary);
+                        return getString(com.whitefm.R.string.title_elementary);
                 }
             }
         });

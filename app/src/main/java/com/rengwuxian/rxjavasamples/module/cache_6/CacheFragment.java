@@ -15,10 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rengwuxian.rxjavasamples.BaseFragment;
-import com.rengwuxian.rxjavasamples.R;
 import com.rengwuxian.rxjavasamples.adapter.ItemListAdapter;
 import com.rengwuxian.rxjavasamples.model.Item;
 import com.rengwuxian.rxjavasamples.module.cache_6.data.Data;
+import com.whitefm.R;
 
 import java.util.List;
 

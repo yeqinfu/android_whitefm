@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.rengwuxian.rxjavasamples.BaseFragment;
 import com.rengwuxian.rxjavasamples.network.Network;
-import com.rengwuxian.rxjavasamples.R;
+import com.whitefm.R;
 import com.rengwuxian.rxjavasamples.network.api.FakeApi;
 import com.rengwuxian.rxjavasamples.model.FakeThing;
 import com.rengwuxian.rxjavasamples.model.FakeToken;
