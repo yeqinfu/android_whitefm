@@ -4,6 +4,7 @@ package com.whitefm.main.home;
 
 import java.util.List;
 
+import com.orhanobut.logger.Logger;
 import com.whitefm.R;
 import com.whitefm.base.FG_Base;
 import com.whitefm.main.adapter.AD_HomePage;
@@ -41,11 +42,13 @@ public class FG_HomePage extends FG_Base {
 	Observer<List<BN_HomePage>>	observer	= new Observer<List<BN_HomePage>>() {
 												@Override
 												public void onCompleted() {
+													Logger.d("onCompleted");
 
                                                 }
 
 												@Override
 												public void onError(Throwable e) {
+													Logger.d("onError");
 													swipeRefreshLayout.setRefreshing(false);
 													Toast.makeText(getActivity(), R.string.loading_failed, Toast.LENGTH_SHORT).show();
 												}
