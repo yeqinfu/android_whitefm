@@ -5,10 +5,10 @@ package com.whitefm.main.home;
 import java.util.List;
 
 import com.whitefm.R;
-import com.rengwuxian.rxjavasamples.model.ZhuangbiImage;
-import com.rengwuxian.rxjavasamples.network.Network;
 import com.whitefm.base.FG_Base;
 import com.whitefm.main.adapter.AD_HomePage;
+import com.whitefm.main.api.API;
+import com.whitefm.main.bean.BN_HomePage;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -30,67 +30,70 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class FG_HomePage extends FG_Base {
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.gridRv) RecyclerView gridRv;
+	@Bind(R.id.swipeRefreshLayout)
+	SwipeRefreshLayout			swipeRefreshLayout;
+	@Bind(R.id.gridRv)
+	RecyclerView				gridRv;
 
-    AD_HomePage adapter = new AD_HomePage();
-    Observer<List<ZhuangbiImage>> observer = new Observer<List<ZhuangbiImage>>() {
-        @Override
-        public void onCompleted() {
-        }
 
-        @Override
-        public void onError(Throwable e) {
-            swipeRefreshLayout.setRefreshing(false);
-            Toast.makeText(getActivity(), R.string.loading_failed, Toast.LENGTH_SHORT).show();
-        }
 
-        @Override
-        public void onNext(List<ZhuangbiImage> images) {
-            swipeRefreshLayout.setRefreshing(false);
-            adapter.setImages(images);
-        }
-    };
+	AD_HomePage					adapter		= new AD_HomePage();
+	Observer<List<BN_HomePage>>	observer	= new Observer<List<BN_HomePage>>() {
+												@Override
+												public void onCompleted() {
 
-    @OnCheckedChanged({R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4})
-    void onTagChecked(RadioButton searchRb, boolean checked) {
-        if (checked) {
-            unsubscribe();
-            adapter.setImages(null);
-            swipeRefreshLayout.setRefreshing(true);
-            search(searchRb.getText().toString());
-        }
-    }
+                                                }
 
-    private void search(String key) {
-        subscription = Network.getZhuangbiApi()
-                .search(key)
+												@Override
+												public void onError(Throwable e) {
+													swipeRefreshLayout.setRefreshing(false);
+													Toast.makeText(getActivity(), R.string.loading_failed, Toast.LENGTH_SHORT).show();
+												}
+
+												@Override
+												public void onNext(List<BN_HomePage> images) {
+													swipeRefreshLayout.setRefreshing(false);
+													 adapter.setImages(images);
+												}
+											};
+
+	@OnCheckedChanged({ R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4 })
+	void onTagChecked(RadioButton searchRb, boolean checked) {
+		if (checked) {
+			unsubscribe();
+			adapter.setImages(null);
+			swipeRefreshLayout.setRefreshing(true);
+			getAllMusic();
+		}
+	}
+
+
+	private void getAllMusic() {
+		subscription = API.getInstance().getAPI().getAllMusic()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
-    }
+	}
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_elementary, container, false);
-        ButterKnife.bind(this, view);
+	@Nullable
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_elementary, container, false);
+		ButterKnife.bind(this, view);
+		gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+		gridRv.setAdapter(adapter);
+		swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
+		swipeRefreshLayout.setEnabled(false);
+		return view;
+	}
 
-        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        gridRv.setAdapter(adapter);
-        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
-        swipeRefreshLayout.setEnabled(false);
+	@Override
+	protected int getDialogRes() {
+		return R.layout.dialog_elementary;
+	}
 
-        return view;
-    }
-
-    @Override
-    protected int getDialogRes() {
-        return R.layout.dialog_elementary;
-    }
-
-    @Override
-    protected int getTitleRes() {
-        return R.string.title_elementary;
-    }
+	@Override
+	protected int getTitleRes() {
+		return R.string.fg_homepage;
+	}
 }

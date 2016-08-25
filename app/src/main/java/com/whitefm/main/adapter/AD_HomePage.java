@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.bumptech.glide.Glide;
 import com.whitefm.R;
-import com.rengwuxian.rxjavasamples.model.ZhuangbiImage;
+import com.whitefm.main.bean.BN_HomePage;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AD_HomePage extends RecyclerView.Adapter {
-    List<ZhuangbiImage> images;
+    List<BN_HomePage> images;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,9 +30,9 @@ public class AD_HomePage extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DebounceViewHolder debounceViewHolder = (DebounceViewHolder) holder;
-        ZhuangbiImage image = images.get(position);
-        Glide.with(holder.itemView.getContext()).load(image.image_url).into(debounceViewHolder.imageIv);
-        debounceViewHolder.descriptionTv.setText(image.description);
+        BN_HomePage image = images.get(position);
+        Glide.with(holder.itemView.getContext()).load(image.getPic_address()).into(debounceViewHolder.imageIv);
+        debounceViewHolder.descriptionTv.setText(image.getContent());
     }
 
     @Override
@@ -40,7 +40,7 @@ public class AD_HomePage extends RecyclerView.Adapter {
         return images == null ? 0 : images.size();
     }
 
-    public void setImages(List<ZhuangbiImage> images) {
+    public void setImages(List<BN_HomePage> images) {
         this.images = images;
         notifyDataSetChanged();
     }
