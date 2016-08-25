@@ -62,7 +62,7 @@ public class AC_Main extends AppCompatActivity {
             public CharSequence getPageTitle(int position) {
                 switch (position) {
                     case 0:
-                        return getString(com.whitefm.R.string.title_elementary);
+                        return getString(R.string.fg_homepage);
                     case 1:
                         return getString(com.whitefm.R.string.title_map);
                     case 2:
