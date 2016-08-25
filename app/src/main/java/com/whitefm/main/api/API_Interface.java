@@ -1,8 +1,6 @@
 package com.whitefm.main.api;
 
-import java.util.List;
-
-import com.whitefm.main.bean.BN_HomePage;
+import com.whitefm.main.bean.BN_HomePageBody;
 
 import retrofit2.http.GET;
 import rx.Observable;
@@ -13,5 +11,5 @@ import rx.Observable;
 public interface API_Interface {
 
     @GET("MusicController/getAllMusic")
-    Observable<List<BN_HomePage>> getAllMusic();
+    Observable<BN_HomePageBody> getAllMusic();
 }

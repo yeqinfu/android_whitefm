@@ -17,6 +17,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         INSTANCE = this;
-        Utils_Constant.base_url=getResources().getString(R.string.base_url);
+        Utils_Constant.base_url=getResources().getString(R.string.base_url)+"/web_api";
     }
 }
