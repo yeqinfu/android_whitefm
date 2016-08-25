@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="base_url">http://192.168.5.78:8080</string>
+    <!--log 开关-->
+    <string name="logger_swicth">true</string>
+
 </resources>

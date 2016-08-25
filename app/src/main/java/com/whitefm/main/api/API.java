@@ -23,13 +23,15 @@ public class API {
 	private volatile static API			instance;
 
 	private API() {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-		okHttpClient=new OkHttpClient.Builder().addInterceptor(logging).build();
-		Gson gson = new GsonBuilder()
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.create();//使用 gson coverter，统一日期请求格式
-		gsonConverterFactory=GsonConverterFactory.create(gson);
+		if (Utils_Constant.logger_swicth==true){
+			HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+			logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+			okHttpClient=new OkHttpClient.Builder().addInterceptor(logging).build();
+			Gson gson = new GsonBuilder()
+					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+					.create();//使用 gson coverter，统一日期请求格式
+			gsonConverterFactory=GsonConverterFactory.create(gson);
+		}
     }
 
 	public static API getInstance() {
