@@ -57,43 +57,36 @@ public class FG_HomePage extends FG_Base {
         }
     };
 
-    @OnCheckedChanged({R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4})
-    void onTagChecked(RadioButton searchRb, boolean checked) {
-        if (checked) {
-            unsubscribe();
-            adapter.setImages(null);
-            swipeRefreshLayout.setRefreshing(true);
-            getAllMusic();
-        }
-    }
-
-
-    private void getAllMusic() {
+    private void loadContent() {
         subscription = API.getInstance().getAPI().getAllMusic()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_elementary, container, false);
-        ButterKnife.bind(this, view);
-        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        gridRv.setAdapter(adapter);
-        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
-        swipeRefreshLayout.setEnabled(false);
-        return view;
-    }
-
-    @Override
-    protected int getDialogRes() {
-        return R.layout.dialog_elementary;
-    }
-
     @Override
     protected int getTitleRes() {
         return R.string.fg_homepage;
+    }
+
+    @Override
+    protected int getFgRes() {
+        return R.layout.fg_homepage;
+    }
+
+    @Override
+    protected void afterViews() {
+        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        gridRv.setAdapter(adapter);
+        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
+        swipeRefreshLayout.setEnabled(true);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.setImages(null);
+                swipeRefreshLayout.setRefreshing(true);
+                loadContent();
+            }
+        });
+        loadContent();
     }
 }
