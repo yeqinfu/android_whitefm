@@ -7,6 +7,7 @@ import com.rengwuxian.rxjavasamples.module.token_4.TokenFragment;
 import com.rengwuxian.rxjavasamples.module.token_advanced_5.TokenAdvancedFragment;
 import com.rengwuxian.rxjavasamples.module.zip_3.ZipFragment;
 import com.whitefm.main.home.FG_HomePage;
+import com.whitefm.main.home.FG_Music;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -44,7 +45,7 @@ public class AC_Main extends AppCompatActivity {
                     case 0:
                         return new FG_HomePage();
                     case 1:
-                        return new MapFragment();
+                        return new FG_Music();
                     case 2:
                         return new ZipFragment();
                     case 3:
@@ -64,17 +65,17 @@ public class AC_Main extends AppCompatActivity {
                     case 0:
                         return getString(R.string.fg_homepage);
                     case 1:
-                        return getString(com.whitefm.R.string.title_map);
+                        return getString(com.whitefm.R.string.fg_dreamer);
                     case 2:
-                        return getString(com.whitefm.R.string.title_zip);
+                        return getString(com.whitefm.R.string.fg_stranger_msg);
                     case 3:
-                        return getString(com.whitefm.R.string.title_token);
+                        return getString(com.whitefm.R.string.fg_season_song);
                     case 4:
-                        return getString(com.whitefm.R.string.title_token_advanced);
+                        return getString(com.whitefm.R.string.fg_yesterday_msg);
                     case 5:
-                        return getString(com.whitefm.R.string.title_cache);
+                        return getString(com.whitefm.R.string.fg_heart_journey);
                     default:
-                        return getString(com.whitefm.R.string.title_elementary);
+                        return getString(com.whitefm.R.string.fg_lift_msg);
                 }
             }
         });
