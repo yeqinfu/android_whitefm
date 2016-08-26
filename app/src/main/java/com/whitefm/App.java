@@ -18,6 +18,7 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
 		INSTANCE = this;
 		Utils_Constant.base_url = getResources().getString(R.string.base_url) + "/web_api";
 		Utils_Constant.logger_swicth = getResources().getString(R.string.logger_swicth).equals("true") ? true : false;
