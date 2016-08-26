@@ -33,6 +33,7 @@ public class AC_Main extends AppCompatActivity {
 
         setSupportActionBar(toolBar);
 
+
         viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public int getCount() {
