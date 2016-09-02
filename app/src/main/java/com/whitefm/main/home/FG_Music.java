@@ -94,6 +94,7 @@ public class FG_Music extends FG_Base {
 		mVisualizer.setEnabled(true);//false 则不显示
 		mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
+
 			@Override
 			public void onCompletion(MediaPlayer mp) {}
 		});
