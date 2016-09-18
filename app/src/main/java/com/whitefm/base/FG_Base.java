@@ -3,20 +3,18 @@
 package com.whitefm.base;
 
 import android.app.Fragment;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.whitefm.R;
-
 import butterknife.ButterKnife;
 import rx.Subscription;
 
+/**
+ * 功能性base 不放业务base逻辑
+ */
 public abstract class FG_Base extends Fragment {
     protected Subscription subscription;
 

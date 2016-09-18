@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1号 标准大小（菜单列表、按钮字体）28px -->
+    <dimen name="text_size_1">15sp</dimen>
+    <!-- 2号 文章标题 34px -->
+    <dimen name="text_size_2">17sp</dimen>
+    <!-- 3号 列表页优惠折扣标签 32px -->
+    <dimen name="text_size_3">16sp</dimen>
+    <!-- 4号 列表页标题（如药房名称或药品名称） 30px -->
+    <dimen name="text_size_4">14sp</dimen>
+    <!-- 5号 列表页次要信息（如药品规格） 24px -->
+    <dimen name="text_size_5">12sp</dimen>
+    <!-- 6号 列表页再次要信息（如公司信息） 22px -->
+    <dimen name="text_size_6">11sp</dimen>
+    <!-- 7号 领券中心超大字体  130px -->
+    <dimen name="text_size_7">65sp</dimen>
+    <!-- 8号 领券中心人民币符号大小  54px -->
+    <dimen name="text_size_8">27sp</dimen>
+    <!-- 9号    18px -->
+    <dimen name="text_size_9">9sp</dimen>
+    <!-- 10号    40px -->
+    <dimen name="text_size_10">20sp</dimen>
+    <!-- 11号    26px -->
+    <dimen name="text_size_11">13sp</dimen>
+    <!-- 12号 标题文字  50px -->
+    <dimen name="text_size_12">25sp</dimen>
+    <!-- 13号 标题文字  36px -->
+    <dimen name="text_size_13">18sp</dimen>
+    <!-- 14号 114px -->
+    <dimen name="text_size_14">57sp</dimen>
+</resources>

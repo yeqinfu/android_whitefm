@@ -5,6 +5,7 @@ package com.whitefm.main.home;
 import com.orhanobut.logger.Logger;
 import com.whitefm.R;
 import com.whitefm.base.FG_Base;
+import com.whitefm.basefm.FG_BaseFM;
 import com.whitefm.main.adapter.AD_HomePage;
 import com.whitefm.main.api.API;
 import com.whitefm.main.bean.BN_HomePageBody;
@@ -28,7 +29,7 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class FG_HomePage extends FG_Base {
+public class FG_HomePage extends FG_BaseFM {
     @Bind(R.id.swipeRefreshLayout)
     SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.gridRv)

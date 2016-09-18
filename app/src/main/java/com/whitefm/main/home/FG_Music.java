@@ -2,6 +2,7 @@ package com.whitefm.main.home;
 
 import com.whitefm.R;
 import com.whitefm.base.FG_Base;
+import com.whitefm.basefm.FG_BaseFM;
 import com.whitefm.utils.toast.ToastUtil;
 import com.whitefm.wiget.VisualizerView;
 
@@ -27,7 +28,7 @@ import android.widget.TextView;
 /**
  * Created by yeqinfu on 8/25/16.
  */
-public class FG_Music extends FG_Base {
+public class FG_Music extends FG_BaseFM {
 	private static final float	VISUALIZER_HEIGHT_DIP	= 150f;	//频谱View高度
 
 	private MediaPlayer			mMediaPlayer;					//音频

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1号 APP基础色 -->
+    <attr name="qw_color_01" format="reference|color" />
+    <!-- 2号 用于按钮，优惠信息，交互反馈色 -->
+    <attr name="qw_color_02" format="reference|color" />
+    <!-- 3号 用于疯抢、优惠、未读消息背景色等标签底色 -->
+    <attr name="qw_color_03" format="reference|color" />
+    <!-- 4号 用户反白 -->
+    <attr name="qw_color_04" format="reference|color" />
+    <!-- 5号 用户链接 -->
+    <attr name="qw_color_05" format="reference|color" />
+    <!-- 6号 用于标题，正文 -->
+    <attr name="qw_color_06" format="reference|color" />
+    <!-- 7号 用于菜单、列表文字 -->
+    <attr name="qw_color_07" format="reference|color" />
+    <!-- 8号 用于说明文字，提示文案 -->
+    <attr name="qw_color_08" format="reference|color" />
+    <!-- 9号 用于搜索框、输入框默认提示，次要文字、无效文字 -->
+    <attr name="qw_color_09" format="reference|color" />
+    <!-- 10号 用于分割线、按钮描边 -->
+    <attr name="qw_color_10" format="reference|color" />
+    <!-- 11号 用于展开模块背景色 -->
+    <attr name="qw_color_11" format="reference|color" />
+    <!-- 12号 -->
+    <attr name="qw_color_12" format="reference|color" />
+    <!-- 13号 -->
+    <attr name="qw_color_13" format="reference|color" />
+    <!-- 14号 -->
+    <attr name="qw_color_14" format="reference|color" />
+    <!-- 15号 -->
+    <attr name="qw_color_15" format="reference|color" />
+    <!-- 16号 -->
+    <attr name="qw_color_16" format="reference|color" />
+    <!-- 17号 -->
+    <attr name="qw_color_17" format="reference|color" />
+    <!-- 18号 -->
+    <attr name="qw_color_18" format="reference|color" />
+    <!-- 19号 -->
+    <attr name="qw_color_19" format="reference|color" />
+    <!-- 20号 -->
+    <attr name="qw_color_20" format="reference|color" />
+    <!-- 21号 -->
+    <attr name="qw_color_21" format="reference|color" />
+    <!-- 22号 -->
+    <attr name="qw_color_22" format="reference|color" />
+    <!-- 23号 -->
+    <attr name="qw_color_23" format="reference|color" />
+    <!-- 24号 -->
+    <attr name="qw_color_24" format="reference|color" />
+    <!-- 25号 -->
+    <attr name="qw_color_25" format="reference|color" />
+    <!-- 26号 -->
+    <attr name="qw_color_26" format="reference|color" />
+    <!-- 27号 -->
+    <attr name="qw_color_27" format="reference|color" />
+
+    <!-- 1号 标准大小（菜单列表、按钮字体）28px -->
+    <attr name="qw_text_size_1" format="dimension" />
+    <!-- 2号 文章标题 34px -->
+    <attr name="qw_text_size_2" format="dimension" />
+    <!-- 3号 列表页优惠折扣标签 32px -->
+    <attr name="qw_text_size_3" format="dimension" />
+    <!-- 4号 列表页标题（如药房名称或药品名称） 30px -->
+    <attr name="qw_text_size_4" format="dimension" />
+    <!-- 5号 列表页次要信息（如药品规格） 24px -->
+    <attr name="qw_text_size_5" format="dimension" />
+    <!-- 6号 列表页再次要信息（如公司信息） 22px -->
+    <attr name="qw_text_size_6" format="dimension" />
+    <!-- 7号 优惠券的券值 138px -->
+    <attr name="qw_text_size_7" format="dimension" />
+    <!-- 8号优惠券的人民币符号 54px -->
+    <attr name="qw_text_size_8" format="dimension" />
+    <!-- 9号 18px -->
+    <attr name="qw_text_size_9" format="dimension" />
+    <!-- 10号  40px -->
+    <attr name="qw_text_size_10" format="dimension" />
+    <!-- 11号  26px -->
+    <attr name="qw_text_size_11" format="dimension" />
+    <!-- 12号  50px -->
+    <attr name="qw_text_size_12" format="dimension" />
+    <!-- 13号  36px -->
+    <attr name="qw_text_size_13" format="dimension" />
+    <!-- 14号  114px -->
+    <attr name="qw_text_size_14" format="dimension" />
+
+</resources>
