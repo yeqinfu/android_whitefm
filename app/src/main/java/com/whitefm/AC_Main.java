@@ -6,6 +6,7 @@ import com.rengwuxian.rxjavasamples.module.map_2.MapFragment;
 import com.rengwuxian.rxjavasamples.module.token_4.TokenFragment;
 import com.rengwuxian.rxjavasamples.module.token_advanced_5.TokenAdvancedFragment;
 import com.rengwuxian.rxjavasamples.module.zip_3.ZipFragment;
+import com.whitefm.base.app.AppFileManager;
 import com.whitefm.main.home.FG_HomePage;
 import com.whitefm.main.home.FG_Music;
 
@@ -17,6 +18,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import java.io.File;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -24,12 +27,14 @@ public class AC_Main extends AppCompatActivity {
     @Bind(android.R.id.tabs) TabLayout tabLayout;
     @Bind(R.id.viewPager) ViewPager viewPager;
     @Bind(R.id.toolBar) Toolbar toolBar;
-
+    public static final String LogFileDir = "fileLog";
+    public static final String LogFileName = "Android_Log.txt";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        File file = AppFileManager.getInstance(App.getContext()).createFile(LogFileDir, LogFileName);
 
         setSupportActionBar(toolBar);
 
