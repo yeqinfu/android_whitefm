@@ -16,45 +16,54 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by yeqinfu on 8/24/16.
  */
 public class API {
-	private static OkHttpClient			okHttpClient				= new OkHttpClient();
-	private static Converter.Factory	gsonConverterFactory		= GsonConverterFactory.create();
-	private static CallAdapter.Factory	rxJavaCallAdapterFactory	= RxJavaCallAdapterFactory.create();
-	private static API_Interface		api_interface;
-	private volatile static API			instance;
+    private static OkHttpClient okHttpClient = new OkHttpClient();
+    private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
+    private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
+    private static API_Interface api_interface;
+    private volatile static API instance;
 
-	private API() {
-		if (Utils_Constant.logger_swicth==true){
-			HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-			logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-			okHttpClient=new OkHttpClient.Builder().addInterceptor(logging).build();
-			Gson gson = new GsonBuilder()
-					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.create();//使用 gson coverter，统一日期请求格式
-			gsonConverterFactory=GsonConverterFactory.create(gson);
-		}
+    private API() {
+        if (Utils_Constant.logger_swicth == true) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+            okHttpClient = new OkHttpClient.Builder().addInterceptor(logging).build();
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                    .create();//使用 gson coverter，统一日期请求格式
+            gsonConverterFactory = GsonConverterFactory.create(gson);
+        }
     }
 
-	public static API getInstance() {
-		if (instance == null) {
-			synchronized (API.class) {
-				if (instance == null) {
-					instance = new API();
-				}
-			}
-		}
-		return instance;
-	}
+    public static API getInstance() {
+        if (instance == null) {
+            synchronized (API.class) {
+                if (instance == null) {
+                    instance = new API();
+                }
+            }
+        }
+        return instance;
+    }
 
-	public API_Interface getAPI() {
-		if (api_interface == null) {
-			Retrofit retrofit = new Retrofit.Builder()
+    public API_Interface getAPI() {
+        if (api_interface == null) {
+            Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient).baseUrl(Utils_Constant.base_url + "/")
                     .addConverterFactory(gsonConverterFactory)
-					.addCallAdapterFactory(rxJavaCallAdapterFactory).build();
-			api_interface = retrofit.create(API_Interface.class);
-		}
-		return api_interface;
-	}
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory).build();
+            api_interface = retrofit.create(API_Interface.class);
+        }
+        return api_interface;
+    }
+
+    public API_Interface getAPI(String baseUrl) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .client(okHttpClient).baseUrl(baseUrl)
+                .addConverterFactory(gsonConverterFactory)
+                .addCallAdapterFactory(rxJavaCallAdapterFactory).build();
+        api_interface = retrofit.create(API_Interface.class);
+        return api_interface;
+    }
 
 
 }

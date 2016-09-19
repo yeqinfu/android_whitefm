@@ -50,5 +50,7 @@
     <string name="fg_yesterday_msg">昨日书</string>
     <string name="fg_heart_journey">心旅程</string>
     <string name="fg_lift_msg">生活志</string>
+    <string name="fg_robot">聊天机器人</string>
+    <string name="send">发送</string>
 
 </resources>

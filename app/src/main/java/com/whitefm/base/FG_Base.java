@@ -29,6 +29,7 @@ public abstract class FG_Base extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        ButterKnife.unbind(this);
         unsubscribe();
     }
 

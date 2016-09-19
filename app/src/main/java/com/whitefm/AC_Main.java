@@ -9,6 +9,7 @@ import com.rengwuxian.rxjavasamples.module.zip_3.ZipFragment;
 import com.whitefm.base.app.AppFileManager;
 import com.whitefm.main.home.FG_HomePage;
 import com.whitefm.main.home.FG_Music;
+import com.whitefm.main.home.FG_Robot;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class AC_Main extends AppCompatActivity {
                     case 1:
                         return new FG_Music();
                     case 2:
-                        return new ZipFragment();
+                        return new FG_Robot();
                     case 3:
                         return new TokenFragment();
                     case 4:
