@@ -3,13 +3,13 @@ package com.whitefm.main.home;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
 import com.whitefm.R;
+import com.whitefm.base.OnLoadMoreListener;
 import com.whitefm.basefm.FG_BaseFM;
 import com.whitefm.main.adapter.AD_BaiduMusic;
 import com.whitefm.main.api.API;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.OnClick;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -47,7 +46,8 @@ public class FG_BaiduMusic extends FG_BaseFM {
 
     @Override
     protected void afterViews() {
-        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        gridRv.setLayoutManager(gridLayoutManager);
         gridRv.setAdapter(ad_baiduMusic);
         swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
         swipeRefreshLayout.setEnabled(true);
@@ -57,6 +57,14 @@ public class FG_BaiduMusic extends FG_BaseFM {
                 ad_baiduMusic.setData(null);
                 swipeRefreshLayout.setRefreshing(true);
                 loadContent(true);
+            }
+        });
+
+        gridRv.setOnScrollListener(new OnLoadMoreListener(gridLayoutManager) {
+            @Override
+            public void onLoadMore(int currentPage) {
+                loadContent(false);
+
             }
         });
 

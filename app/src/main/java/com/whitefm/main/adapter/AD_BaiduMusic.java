@@ -32,7 +32,7 @@ public class AD_BaiduMusic extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DebounceViewHolder debounceViewHolder = (DebounceViewHolder) holder;
         BN_BaiduMusicBody.SongListBean item = list.get(position);
-        Glide.with(holder.itemView.getContext()).load(item.getPic_small()).into(debounceViewHolder.imageIv);
+        Glide.with(holder.itemView.getContext()).load(item.getPic_big()).into(debounceViewHolder.imageIv);
         debounceViewHolder.descriptionTv.setText(item.getTitle());
     }
 
