@@ -2,29 +2,20 @@
 
 package com.whitefm.main.home;
 
+import android.graphics.Color;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
+
 import com.orhanobut.logger.Logger;
 import com.whitefm.R;
-import com.whitefm.base.FG_Base;
 import com.whitefm.basefm.FG_BaseFM;
 import com.whitefm.main.adapter.AD_HomePage;
 import com.whitefm.main.api.API;
 import com.whitefm.main.bean.BN_HomePageBody;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RadioButton;
-import android.widget.Toast;
-
 import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

@@ -10,26 +10,15 @@ import butterknife.ButterKnife;
 public abstract class AC_Base extends AC_ToolBar{
     public abstract  int getActivityLayout();
 
-    public void afterViews(){}
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            setContentView(getActivityLayout());
-            afterViews();
+        setContentView(getActivityLayout());
     }
 
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         ButterKnife.bind(this);//绑定注解
-    }
-
-    @Override
-    protected void onDestroy() {
-        ButterKnife.unbind(this);
-        super.onDestroy();
-
     }
 }

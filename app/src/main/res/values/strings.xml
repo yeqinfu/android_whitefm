@@ -54,5 +54,6 @@
     <string name="send">发送</string>
     <string name="tv_first_word">hello 纯白</string>
     <string name="fg_baidu_music">百度音乐接口</string>
+    <string name="btn_clik">点击</string>
 
 </resources>

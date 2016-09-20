@@ -1,23 +1,21 @@
 package com.whitefm;
 
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
 import com.rengwuxian.rxjavasamples.module.cache_6.CacheFragment;
 import com.rengwuxian.rxjavasamples.module.elementary_1.ElementaryFragment;
-import com.rengwuxian.rxjavasamples.module.map_2.MapFragment;
 import com.rengwuxian.rxjavasamples.module.token_4.TokenFragment;
 import com.rengwuxian.rxjavasamples.module.token_advanced_5.TokenAdvancedFragment;
-import com.rengwuxian.rxjavasamples.module.zip_3.ZipFragment;
 import com.whitefm.base.app.AppFileManager;
 import com.whitefm.main.home.FG_HomePage;
 import com.whitefm.main.home.FG_Music;
 import com.whitefm.main.home.FG_Robot;
-
-import android.app.Fragment;
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import java.io.File;
 
@@ -40,7 +38,7 @@ public class AC_Main extends AppCompatActivity {
         setSupportActionBar(toolBar);
 
 
-        viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
+       /* viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public int getCount() {
                 return 6;
@@ -65,8 +63,8 @@ public class AC_Main extends AppCompatActivity {
                         return new ElementaryFragment();
                 }
             }
-
-            @Override
+*/
+          /*  @Override
             public CharSequence getPageTitle(int position) {
                 switch (position) {
                     case 0:
@@ -86,6 +84,6 @@ public class AC_Main extends AppCompatActivity {
                 }
             }
         });
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);*/
     }
 }

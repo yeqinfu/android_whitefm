@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolBar);
 
-        viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
+       /* viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public int getCount() {
                 return 6;
@@ -78,6 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);*/
     }
 }
