@@ -64,10 +64,6 @@ public class FG_HomePage extends FG_BaseFM {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
-    @Override
-    protected int getTitleRes() {
-        return R.string.fg_homepage;
-    }
 
     @Override
     protected int getFgRes() {

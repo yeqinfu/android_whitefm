@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.whitefm.base.AC_ContentFG;
-import com.whitefm.main.home.FG_HomePage;
+import com.whitefm.main.home.FG_BaiduMusic;
 
 /**
  * Created by yeqinfu on 9/20/16.
@@ -28,7 +28,7 @@ public class AC_First extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent it = AC_ContentFG.createIntent(AC_First.this, FG_HomePage.class.getName(), getString(R.string.fg_homepage), null);
+                Intent it = AC_ContentFG.createIntent(AC_First.this, FG_BaiduMusic.class.getName(), getString(R.string.fg_baidu_music), null);
                 startActivity(it);
                 finish();
             }

@@ -39,10 +39,6 @@ public class FG_Robot extends FG_BaseFM {
 
     List<BN_Robot> list = new ArrayList<>();
 
-    @Override
-    protected int getTitleRes() {
-        return R.string.fg_robot;
-    }
 
     @Override
     protected int getFgRes() {

@@ -39,10 +39,6 @@ public class FG_TitleMusic extends FG_BaseFM {
 	VisualizerView				mBaseVisualizerView;
 	ImageButton					play;
 
-	@Override
-	protected int getTitleRes() {
-		return 0;
-	}
 
 	@Override
 	protected int getFgRes() {

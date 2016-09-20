@@ -38,7 +38,6 @@ public abstract class FG_Base extends Fragment {
             subscription.unsubscribe();
         }
     }
-    protected abstract int getTitleRes();
     protected abstract int getFgRes();
     protected abstract void afterViews();
 }

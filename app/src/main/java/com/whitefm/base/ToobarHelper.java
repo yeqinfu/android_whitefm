@@ -66,6 +66,7 @@ public class ToobarHelper {
         /*通过inflater获取toolbar的布局文件*/
         View toolbar = mInflater.inflate(R.layout.toolbar, mContentView);
         mToolBar = (Toolbar) toolbar.findViewById(R.id.id_tool_bar);
+        mToolBar.setTitleTextColor(mContext.getResources().getColor(R.color.color_04));//title  white color
     }
 
     private void initUserView(int id) {
