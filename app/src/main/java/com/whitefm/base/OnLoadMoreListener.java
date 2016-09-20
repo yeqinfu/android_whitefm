@@ -45,6 +45,9 @@ public abstract class OnLoadMoreListener extends RecyclerView.OnScrollListener {
                 loading = false;
                 previousTotal = totalItemCount;
             }
+            if (totalItemCount < previousTotal){//totalItemCount 不可能小于previousTotal 除非外部刷新了,那么就要重置
+                previousTotal=0;
+            }
         }
         //这里需要好好理解
         if (!loading && totalItemCount - visibleItemCount <= firstVisibleItem) {
