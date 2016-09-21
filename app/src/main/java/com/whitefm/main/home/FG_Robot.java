@@ -13,7 +13,7 @@ import com.orhanobut.logger.Logger;
 import com.whitefm.R;
 import com.whitefm.base.AD_Base;
 import com.whitefm.basefm.FG_BaseFM;
-import com.whitefm.main.api.API;
+import com.whitefm.main.api.Http;
 import com.whitefm.main.bean.BN_RobotBody;
 
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class FG_Robot extends FG_BaseFM {
     };
 
     private void loadContent(String question) {
-        subscription = API.getInstance()
+        subscription = Http.getInstance()
                 .getAPI("http://api.jisuapi.com/")
                 .getAnswer("271d73b1021a5350", question)
                 .subscribeOn(Schedulers.io())

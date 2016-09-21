@@ -12,7 +12,7 @@ import com.orhanobut.logger.Logger;
 import com.whitefm.R;
 import com.whitefm.basefm.FG_BaseFM;
 import com.whitefm.main.adapter.AD_HomePage;
-import com.whitefm.main.api.API;
+import com.whitefm.main.api.Http;
 import com.whitefm.main.bean.BN_HomePageBody;
 
 import butterknife.Bind;
@@ -50,7 +50,7 @@ public class FG_HomePage extends FG_BaseFM {
     };
 
     private void loadContent() {
-        subscription = API.getInstance().getAPI().getAllMusic()
+        subscription = Http.getInstance().getAPI().getAllMusic()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

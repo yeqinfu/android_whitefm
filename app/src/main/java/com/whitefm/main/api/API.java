@@ -1,69 +1,53 @@
 package com.whitefm.main.api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.whitefm.base.Utils_Constant;
+import com.whitefm.main.bean.BN_BaiduMusicBody;
+import com.whitefm.main.bean.BN_BaiduMusicDetailBody;
+import com.whitefm.main.bean.BN_HomePageBody;
+import com.whitefm.main.bean.BN_RobotBody;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.CallAdapter;
-import retrofit2.Converter;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+import rx.Observable;
 
 /**
  * Created by yeqinfu on 8/24/16.
  */
-public class API {
-    private static OkHttpClient okHttpClient = new OkHttpClient();
-    private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
-    private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
-    private static API_Interface api_interface;
-    private volatile static API instance;
+public interface API {
 
-    private API() {
-        if (Utils_Constant.logger_swicth == true) {
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-            okHttpClient = new OkHttpClient.Builder().addInterceptor(logging).build();
-            Gson gson = new GsonBuilder()
-                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-                    .create();//使用 gson coverter，统一日期请求格式
-            gsonConverterFactory = GsonConverterFactory.create(gson);
-        }
-    }
+    /**
+     * 服务器数据 测试
+     */
+    @GET("MusicController/getAllMusic")
+    Observable<BN_HomePageBody> getAllMusic();
 
-    public static API getInstance() {
-        if (instance == null) {
-            synchronized (API.class) {
-                if (instance == null) {
-                    instance = new API();
-                }
-            }
-        }
-        return instance;
-    }
+    /**
+     * 聊天机器人
+     */
+    @GET("iqa/query")
+    Observable<BN_RobotBody> getAnswer(@Query("appkey") String appkey,
+                                       @Query("question") String question
+    );
 
-    public API_Interface getAPI() {
-        if (api_interface == null) {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .client(okHttpClient).baseUrl(Utils_Constant.base_url + "/")
-                    .addConverterFactory(gsonConverterFactory)
-                    .addCallAdapterFactory(rxJavaCallAdapterFactory).build();
-            api_interface = retrofit.create(API_Interface.class);
-        }
-        return api_interface;
-    }
 
-    public API_Interface getAPI(String baseUrl) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .client(okHttpClient).baseUrl(baseUrl)
-                .addConverterFactory(gsonConverterFactory)
-                .addCallAdapterFactory(rxJavaCallAdapterFactory).build();
-        api_interface = retrofit.create(API_Interface.class);
-        return api_interface;
-    }
+    /**
+     * 参数：songid = 877578 //歌曲id
+     */
+    @GET("?method=baidu.ting.song.play")
+    Observable<BN_BaiduMusicDetailBody> getBaiduMusicDetail(@Query("songid") String songid);
+
+    /**
+     * 百度音乐列表
+     * <p/>
+     * 参数：
+     * type = 1-新歌榜,2-热歌榜,11-摇滚榜,12-爵士,16-流行,21-欧美金曲榜,22-经典老歌榜,23-情歌对唱榜,24-影视金曲榜,25-网络歌曲榜
+     * size = 10 //返回条目数量
+     * offset = 0 //获取偏移
+     */
+    @GET("?method=baidu.ting.billboard.billList")
+    Observable<BN_BaiduMusicBody> getBaiduMusicList(@Query("type") int type,
+                                                    @Query("size") int size,
+                                                    @Query("offset") int offset
+    );
 
 
 }

@@ -3,16 +3,16 @@ package com.whitefm.main.home;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
 import com.whitefm.R;
 import com.whitefm.base.OnLoadMoreListener;
+import com.whitefm.base.Utils_Constant;
 import com.whitefm.basefm.FG_BaseFM;
 import com.whitefm.main.adapter.AD_BaiduMusic;
-import com.whitefm.main.api.API;
+import com.whitefm.main.api.Http;
 import com.whitefm.main.bean.BN_BaiduMusicBody;
 
 import java.util.ArrayList;
@@ -77,7 +77,8 @@ public class FG_BaiduMusic extends FG_BaseFM {
             page = 1;
             song_list.clear();
         }
-        subscription = API.getInstance().getAPI("http://tingapi.ting.baidu.com/v1/restserver/ting/").getBaiduMusicList(2, pageSize, page)
+        subscription = Http.getInstance().getAPI(Utils_Constant.baidu_music_base_url)
+                .getBaiduMusicList(2, pageSize, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
