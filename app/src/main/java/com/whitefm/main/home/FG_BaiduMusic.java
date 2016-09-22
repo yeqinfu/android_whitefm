@@ -37,7 +37,7 @@ public class FG_BaiduMusic extends FG_BaseFM {
     private int page = 1;
     private int pageSize = 10;
 
-    AD_BaiduMusic ad_baiduMusic = new AD_BaiduMusic();
+    AD_BaiduMusic ad_baiduMusic = new AD_BaiduMusic(getActivity());
 
     @Override
     protected int getFgRes() {

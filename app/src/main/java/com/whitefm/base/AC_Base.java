@@ -9,11 +9,14 @@ import butterknife.ButterKnife;
  */
 public abstract class AC_Base extends AC_ToolBar{
     public abstract  int getActivityLayout();
+    public abstract  void afterViews();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getActivityLayout());
+        afterViews();
     }
 
     @Override

@@ -33,6 +33,11 @@ public class AC_ContentFG extends AC_Base {
     }
 
     @Override
+    public void afterViews() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       //  setContentView(R.layout.ac_content_fg);

@@ -13,18 +13,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".AC_Main">
-
         </activity>
         <activity android:name=".base.AC_ContentFG"/>
         <activity android:name=".AC_First">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
+        <activity android:name="com.todolist.AC_ToDoMain"/>
+        <activity
+            android:name="com.todolist.AC_Scoll"
+            android:label="@string/title_activity_ac__scoll"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>
