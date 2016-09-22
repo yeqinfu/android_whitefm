@@ -24,4 +24,10 @@ public abstract class AC_Base extends AC_ToolBar{
         super.setContentView(layoutResID);
         ButterKnife.bind(this);//绑定注解
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);//绑定注解
+    }
 }

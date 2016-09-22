@@ -3,6 +3,10 @@ package com.todolist;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +19,9 @@ import android.view.MenuItem;
 
 import com.whitefm.R;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class AC_Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,6 +29,7 @@ public class AC_Drawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ac__drawer);
+        ButterKnife.bind(this);//绑定注解
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -42,6 +50,8 @@ public class AC_Drawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        setViewPages();
     }
 
     @Override
@@ -99,5 +109,54 @@ public class AC_Drawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Bind(android.R.id.tabs)
+    TabLayout tabLayout;
+    @Bind(R.id.viewPager)
+    ViewPager viewPager;
+    private void setViewPages() {
+        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public int getCount() {
+                return 3;
+            }
+
+            @Override
+            public Fragment getItem(int position) {
+                switch (position) {
+                    case 0:
+                        return new FG_ToDo();
+                    case 1:
+                        return new FG_Finish();
+                    case 2:
+                        return new FG_All();
+                    default:
+                        return new FG_ToDo();
+                }
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                switch (position) {
+                    case 0:
+                        return getString(R.string.fg_todo);
+                    case 1:
+                        return getString(R.string.fg_finish);
+                    case 2:
+                        return getString(R.string.fg_all);
+                    default:
+                        return getString(R.string.fg_todo);
+                }
+            }
+        });
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);//绑定注解
     }
 }
