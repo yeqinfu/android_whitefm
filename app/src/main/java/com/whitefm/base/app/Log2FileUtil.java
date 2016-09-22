@@ -25,6 +25,7 @@ public class Log2FileUtil {
 	/**
 	 * 日志保存到sdcard中
 	 * @param log
+	 *
 	 */
 	public static void saveLog2Sdcard(String log) {
 		if (true) {

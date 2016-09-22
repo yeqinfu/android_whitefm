@@ -25,6 +25,7 @@ public class AppFileManager {
 				if (instance == null) {
 					instance = new AppFileManager(context);
 				}
+
 			}
 		}
 

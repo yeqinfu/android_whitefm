@@ -15,6 +15,8 @@ public class AppExceptionHandler implements UncaughtExceptionHandler {
 
 	private AppExceptionHandler() {
 
+
+
 	}
 
 	public static AppExceptionHandler getInstance() {

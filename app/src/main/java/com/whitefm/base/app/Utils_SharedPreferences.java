@@ -29,6 +29,7 @@ import android.content.SharedPreferences.Editor;
 	public Utils_SharedPreferences(Context context) {
 		mKV = context.getSharedPreferences(Utils_Constant.sharePreferenceFileName, Context.MODE_PRIVATE);
 		mEditor = mKV.edit();
+
 		this.context = context;
 	}
 	
