@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.todolist.AC_Scoll;
+import com.todolist.AC_Drawer;
 
 /**
  * Created by yeqinfu on 9/20/16.
@@ -27,7 +27,7 @@ public class AC_First extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent it = new Intent(AC_First.this, AC_Scoll.class);
+                Intent it = new Intent(AC_First.this, AC_Drawer.class);
                 startActivity(it);
                 finish();
             }

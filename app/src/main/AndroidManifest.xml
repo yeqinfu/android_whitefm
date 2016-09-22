@@ -29,6 +29,11 @@
             android:label="@string/title_activity_ac__scoll"
             android:theme="@style/AppTheme">
         </activity>
+        <activity
+            android:name="com.todolist.AC_Drawer"
+            android:label="@string/title_activity_ac__drawer"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>
