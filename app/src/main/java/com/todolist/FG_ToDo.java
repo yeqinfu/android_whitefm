@@ -52,7 +52,6 @@ public class FG_ToDo extends FG_BaseFM {
     @Override
     protected void afterViews() {
         Logger.d("----------------------afterViews--------------");
-
         BriteDatabase db = sqlBrite.wrapDatabaseHelper(MySQLiteHelper.getInstance(getActivity()), Schedulers.io());
         Observable<SqlBrite.Query> t_test = db.createQuery(DB_Enum.DB_TEST.getTable_name(), "SELECT * FROM " + DB_Enum.DB_TEST.getTable_name());
         t_test.subscribe(new Subscriber<SqlBrite.Query>() {
