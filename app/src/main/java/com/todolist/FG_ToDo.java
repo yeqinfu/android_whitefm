@@ -49,7 +49,6 @@ public class FG_ToDo extends FG_BaseFM {
     SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.rv_list)
     RecyclerView rv_list;
-
     ArrayList<String> data = new ArrayList<String>();
 
     AD_Todo adapter;
@@ -63,9 +62,29 @@ public class FG_ToDo extends FG_BaseFM {
 
     @Override
     protected void afterViews() {
+        loadContent();
+        adapter = new AD_Todo();
+        rv_list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rv_list.setAdapter(adapter);
+
+        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
+        swipeRefreshLayout.setEnabled(true);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.setItems(null);
+                swipeRefreshLayout.setRefreshing(true);
+                loadContent();
+            }
+        });
+
+
+    }
+
+    private void loadContent() {
         Logger.d("----------------------afterViews--------------");
         BriteDatabase db = sqlBrite.wrapDatabaseHelper(MySQLiteHelper.getInstance(getActivity()), Schedulers.io());
-        Observable<SqlBrite.Query> t_test = db.createQuery(DB_Enum.DB_TEST.getTable_name(), "SELECT * FROM " + DB_Enum.DB_TEST.getTable_name());
+        Observable<SqlBrite.Query> t_test = db.createQuery(DB_Enum.DB_TEST.getTable_name(), "SELECT * FROM " + DB_Enum.DB_TEST.getTable_name()+" order by id asc");
         t_test.subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO
                 .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
 
@@ -105,21 +124,6 @@ public class FG_ToDo extends FG_BaseFM {
                         adapter.setItems(data);
                     }
                 });
-        adapter = new AD_Todo();
-        rv_list.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rv_list.setAdapter(adapter);
-
-        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
-        swipeRefreshLayout.setEnabled(true);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                adapter.setItems(null);
-                swipeRefreshLayout.setRefreshing(true);
-            }
-        });
-
-
     }
 
     @OnClick(R.id.btn_insert)

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+                <item name="windowActionBar">false</item>
+                <item name="windowNoTitle">true</item>
+                <!-- Customize your theme here. -->
+                <item name="colorPrimary">@color/colorPrimary</item>
+                <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+                <item name="colorAccent">@color/colorAccent</item>
+
+                <!-- 颜色属性 -->
+                <item name="qw_color_01">@color/color_01</item>
+                <item name="qw_color_02">@color/color_02</item>
+                <item name="qw_color_03">@color/color_03</item>
+                <item name="qw_color_04">@color/color_04</item>
+                <item name="qw_color_05">@color/color_05</item>
+                <item name="qw_color_06">@color/color_06</item>
+                <item name="qw_color_07">@color/color_07</item>
+                <item name="qw_color_08">@color/color_08</item>
+                <item name="qw_color_09">@color/color_09</item>
+                <item name="qw_color_10">@color/color_10</item>
+                <item name="qw_color_11">@color/color_11</item>
+                <item name="qw_color_12">@color/color_12</item>
+                <item name="qw_color_13">@color/color_13</item>
+                <item name="qw_color_14">@color/color_14</item>
+                <item name="qw_color_15">@color/color_15</item>
+                <item name="qw_color_16">@color/color_16</item>
+                <item name="qw_color_17">@color/color_17</item>
+                <item name="qw_color_18">@color/color_18</item>
+                <item name="qw_color_19">@color/color_19</item>
+                <item name="qw_color_20">@color/color_20</item>
+                <item name="qw_color_21">@color/color_21</item>
+                <item name="qw_color_27">@color/color_27</item>
+
+                <!-- 字体属性 -->
+                <item name="qw_text_size_1">@dimen/text_size_1</item>
+                <item name="qw_text_size_2">@dimen/text_size_2</item>
+                <item name="qw_text_size_3">@dimen/text_size_3</item>
+                <item name="qw_text_size_4">@dimen/text_size_4</item>
+                <item name="qw_text_size_5">@dimen/text_size_5</item>
+                <item name="qw_text_size_6">@dimen/text_size_6</item>
+                <item name="qw_text_size_7">@dimen/text_size_7</item>
+                <item name="qw_text_size_8">@dimen/text_size_8</item>
+                <item name="qw_text_size_9">@dimen/text_size_9</item>
+                <item name="qw_text_size_10">@dimen/text_size_10</item>
+                <item name="qw_text_size_11">@dimen/text_size_11</item>
+                <item name="qw_text_size_13">@dimen/text_size_13</item>
+                <item name="qw_text_size_14">@dimen/text_size_14</item>
+
+        </style>
+
+
+
+
+</resources>

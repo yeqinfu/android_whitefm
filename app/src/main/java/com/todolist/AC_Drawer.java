@@ -16,7 +16,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
+import com.lib.dialog.MDDialog;
 import com.whitefm.R;
 
 import butterknife.Bind;
@@ -37,8 +41,10 @@ public class AC_Drawer extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+              /*  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                showDialog();
+
             }
         });
 
@@ -53,6 +59,7 @@ public class AC_Drawer extends AppCompatActivity
 
         setViewPages();
     }
+
 
     @Override
     public void onBackPressed() {
@@ -116,6 +123,7 @@ public class AC_Drawer extends AppCompatActivity
     TabLayout tabLayout;
     @Bind(R.id.viewPager)
     ViewPager viewPager;
+
     private void setViewPages() {
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
@@ -158,5 +166,66 @@ public class AC_Drawer extends AppCompatActivity
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);//绑定注解
+    }
+
+
+    private void showDialog() {
+
+        new MDDialog.Builder(AC_Drawer.this)
+//				        .setContentView(ll)
+                .setContentView(R.layout.content_dialog)
+                .setContentViewOperator(new MDDialog.ContentViewOperator() {
+                    @Override
+                    public void operate(View contentView) {
+                        EditText et = (EditText) contentView.findViewById(R.id.edit0);
+                        et.setHint("hint set in operator");
+                    }
+                })
+//                      .setMessages(messages)
+                .setTitle("添加")
+                .setNegativeButton(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                })
+                .setPositiveButton(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                })
+                .setPositiveButtonMultiListener(new MDDialog.OnMultiClickListener() {
+
+                    @Override
+                    public void onClick(View clickedView, View contentView) {
+                        EditText et = (EditText) contentView.findViewById(R.id.edit0);
+                        Toast.makeText(getApplicationContext(), "edittext 0 : " + et.getText(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButtonMultiListener(new MDDialog.OnMultiClickListener() {
+
+                    @Override
+                    public void onClick(View clickedView, View contentView) {
+                        EditText et = (EditText) contentView.findViewById(R.id.edit1);
+                        Toast.makeText(getApplicationContext(), "edittext 1 : " + et.getText(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setOnItemClickListener(new MDDialog.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(int index) {
+                        if (index == 0) {
+                            Toast.makeText(getApplicationContext(), "index 0", Toast.LENGTH_SHORT).show();
+                        } else if (index == 1) {
+                            Toast.makeText(getApplicationContext(), "index 1", Toast.LENGTH_SHORT).show();
+                        } else if (index == 2) {
+                            Toast.makeText(getApplicationContext(), "index 2", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .setWidthMaxDp(600)
+//                      .setShowTitle(false)
+                .setShowButtons(true)
+                .create()
+                .show();
     }
 }
